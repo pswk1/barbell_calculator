@@ -8,9 +8,10 @@ interface Props {
 	unit: string;
 	currentWeight: number;
 	reset(): void;
+    addPlates(plate: number): void
 }
 
-const Plates: React.FC<Props> = ({ unit, currentWeight, reset }: Props) => {
+const Plates: React.FC<Props> = ({ unit, currentWeight, reset, addPlates }: Props) => {
 	return (
 		<Flex
 			mt={12}
@@ -21,8 +22,8 @@ const Plates: React.FC<Props> = ({ unit, currentWeight, reset }: Props) => {
 			<HStack spacing='8'>
 				<Heading size='lg'>Add Plates: </Heading>
 				{unit === 'lbs'
-					? platesLbs.map((weight, i) => <Button key={i}>{weight}</Button>)
-					: platesKg.map((weight, i) => <Button key={i}>{weight}</Button>)}
+					? platesLbs.map((weight, i) => <Button onClick={()=> addPlates(weight)} key={i}>{weight}</Button>)
+					: platesKg.map((weight, i) => <Button onClick={()=> addPlates(weight)} key={i}>{weight}</Button>)}
 			</HStack>
 
 			<Text mt={12} fontSize='xl'>
