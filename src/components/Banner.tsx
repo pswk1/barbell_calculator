@@ -1,10 +1,10 @@
 import { Box, Heading } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
-const Banner = () => {
+const Banner: React.FC = () => {
 	return (
 		<Box textAlign='center' p='4' w='100%' height={16}>
-			<Heading>Barbell Weight Calculator</Heading>
+			<Heading size='2xl'>Barbell Weight Calculator</Heading>
 			<ColorModeSwitcher />
 		</Box>
 	);
