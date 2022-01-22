@@ -8,9 +8,12 @@ weight calculations for barbells. Spend less time calculating and more time lift
 <img src='/demo/Barbell Weight Calculator.gif' alt='react pokedex project demo gif'>
 
 ## Deploy
-[ text ]( link )
+[Deploy](https://pk-barbell-calculator.netlify.app/)
 
 ## Features
+- Users can quickly calculate barbell weights with plates
+- Choose a barbell type, unit of measurement(lbs or kgs), and add plate weights and the app will do all the math.
+- Responsive across screenwidths
 
 ## Technology/Languages/Frameworks
 - TypeScript
