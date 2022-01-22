@@ -30,7 +30,9 @@ const Plates: React.FC<Props> = ({
 			<Stack direction={{ base: 'column', md: 'row' }} mt={12} spacing='8'>
 				<VStack spacing='3'>
 					<Heading size='lg'>Add Plates: </Heading>
-					<Text fontSize='sm'>One selection = adding a plate on each side</Text>
+					<Text textAlign='center' fontSize='sm'>
+						One selection = adding a plate on each side
+					</Text>
 				</VStack>
 
 				{plates.map(({ color, lbs, kg }, i) => (
