@@ -1,6 +1,14 @@
 import { useState } from 'react';
-import { Flex, Button, Heading, HStack, Stack, Box } from '@chakra-ui/react';
+import {
+	Flex,
+	Button,
+	Heading,
+	HStack,
+	Stack,
+	useToast,
+} from '@chakra-ui/react';
 import Plates from './Plates';
+import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
 const barLbs = [45, 35, 15];
 const barKg = [20, 15, 12];
@@ -23,9 +31,18 @@ const Barbell: React.FC = () => {
 		setCurrentWeight(bar);
 	};
 
+	const toast = useToast();
 	const addPlates = (plate: number): void => {
-		setCurrentWeight(currentWeight + plate * 2);
-		console.log(currentWeight);
+		if (currentWeight === 0) {
+			toast({
+				title: 'Select a barbell first!',
+				status: 'warning',
+				isClosable: true,
+				duration: 2000,
+			});
+		} else {
+			setCurrentWeight(currentWeight + plate * 2);
+		}
 	};
 
 	const reset = (): void => {
@@ -36,11 +53,12 @@ const Barbell: React.FC = () => {
 
 	return (
 		<Flex
-			mt={12}
+			mt={10}
 			direction='column'
 			alignItems='center'
 			justifyContent='center'
 		>
+			<ColorModeSwitcher mb={4}/>
 			<HStack spacing='8'>
 				<Button onClick={() => handleUnit('lbs')}>lbs</Button>
 				<Button onClick={() => handleUnit('kg')}>kg</Button>
@@ -50,7 +68,7 @@ const Barbell: React.FC = () => {
 				<Heading size='lg'>Select Barbell Weight: </Heading>
 
 				{bar.map((weight, i) => (
-					<Button onClick={() => handleBar(weight)} key={i}>
+					<Button colorScheme='teal' onClick={() => handleBar(weight)} key={i}>
 						{weight}
 					</Button>
 				))}

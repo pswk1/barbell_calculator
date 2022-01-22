@@ -1,14 +1,23 @@
 import React from 'react';
-import {
-	Flex,
-	Button,
-	Heading,
-	Stack,
-	Text,
-} from '@chakra-ui/react';
+import { Flex, Button, Heading, Stack, VStack, Text } from '@chakra-ui/react';
 
-const platesLbs = [45, 35, 25, 10, 5, 2.5];
-const platesKg = [25, 20, 15, 10, 5, 2.5];
+const platesLbs = [
+	{ color: 'red', plate: 45 },
+	{ color: 'blue', plate: 35 },
+	{ color: 'yellow', plate: 25 },
+	{ color: 'green', plate: 10 },
+	{ color: 'purple', plate: 5 },
+	{ color: 'gray', plate: 2.5 },
+];
+
+const platesKg = [
+	{ color: 'red', plate: 25 },
+	{ color: 'blue', plate: 20 },
+	{ color: 'yellow', plate: 15 },
+	{ color: 'green', plate: 10 },
+	{ color: 'purple', plate: 5 },
+	{ color: 'gray', plate: 2.5 },
+];
 
 interface Props {
 	unit: string;
@@ -33,11 +42,14 @@ const Plates: React.FC<Props> = ({
 	return (
 		<Flex direction='column' alignItems='center' justifyContent='center'>
 			<Stack direction={{ base: 'column', md: 'row' }} mt={12} spacing='8'>
-				<Heading size='lg'>Add Plates: </Heading>
+				<VStack spacing='3'>
+					<Heading size='lg'>Add Plates: </Heading>
+					<Text fontSize='sm'>One selection = adding a plate on each side</Text>
+				</VStack>
 
-				{plates.map((weight, i) => (
-					<Button onClick={() => addPlates(weight)} key={i}>
-						{weight}
+				{plates.map(({ color, plate }, i) => (
+					<Button colorScheme={color} onClick={() => addPlates(plate)} key={i}>
+						{plate}
 					</Button>
 				))}
 			</Stack>
