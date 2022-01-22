@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Flex, Button, Heading, HStack } from '@chakra-ui/react';
+import { Flex, Button, Heading, HStack, Stack, Box } from '@chakra-ui/react';
 import Plates from './Plates';
 
 const barLbs = [45, 35, 15];
@@ -13,21 +13,19 @@ const Barbell: React.FC = () => {
 	const handleUnit = (unit: string): void => {
 		setUnit(unit);
 		if (unit === 'lbs') {
-			// setCurrentWeight(45);
 			setBar(barLbs);
 		} else {
-			// setCurrentWeight(20);
 			setBar(barKg);
 		}
 	};
 
-    const handleBar = (bar: number): void => {
-        setCurrentWeight(bar);
-    }
+	const handleBar = (bar: number): void => {
+		setCurrentWeight(bar);
+	};
 
 	const addPlates = (plate: number): void => {
 		setCurrentWeight(currentWeight + plate * 2);
-        console.log(currentWeight);
+		console.log(currentWeight);
 	};
 
 	const reset = (): void => {
@@ -48,12 +46,15 @@ const Barbell: React.FC = () => {
 				<Button onClick={() => handleUnit('kg')}>kg</Button>
 			</HStack>
 
-			<HStack mt={12} spacing='8'>
+			<Stack direction={{ base: 'column', md: 'row' }} mt={12} spacing='8'>
 				<Heading size='lg'>Select Barbell Weight: </Heading>
+
 				{bar.map((weight, i) => (
-					<Button onClick={() => handleBar(weight)} key={i}>{weight}</Button>
+					<Button onClick={() => handleBar(weight)} key={i}>
+						{weight}
+					</Button>
 				))}
-			</HStack>
+			</Stack>
 
 			<Plates
 				unit={unit}
