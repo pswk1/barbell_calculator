@@ -10,8 +10,8 @@ import {
 import Plates from './Plates';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
-const barLbs = [45, 35, 15];
-const barKg = [20, 15, 12];
+const barLbs: number[] = [45, 35, 15];
+const barKg: number[] = [20, 15, 12];
 
 const Barbell: React.FC = () => {
 	const [unit, setUnit] = useState<string>('lbs');
@@ -19,6 +19,7 @@ const Barbell: React.FC = () => {
 	const [currentWeight, setCurrentWeight] = useState<number>(0);
 
 	const handleUnit = (unit: string): void => {
+		setCurrentWeight(0);
 		setUnit(unit);
 		if (unit === 'lbs') {
 			setBar(barLbs);

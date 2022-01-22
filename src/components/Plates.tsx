@@ -1,22 +1,15 @@
 import React from 'react';
 import { Flex, Button, Heading, Stack, VStack, Text } from '@chakra-ui/react';
 
-const platesLbs = [
-	{ color: 'red', plate: 45 },
-	{ color: 'blue', plate: 35 },
-	{ color: 'yellow', plate: 25 },
-	{ color: 'green', plate: 10 },
-	{ color: 'purple', plate: 5 },
-	{ color: 'gray', plate: 2.5 },
-];
+type PlateData = { color: string; lbs: number; kg: number };
 
-const platesKg = [
-	{ color: 'red', plate: 25 },
-	{ color: 'blue', plate: 20 },
-	{ color: 'yellow', plate: 15 },
-	{ color: 'green', plate: 10 },
-	{ color: 'purple', plate: 5 },
-	{ color: 'gray', plate: 2.5 },
+const plates: PlateData[] = [
+	{ color: 'red', lbs: 45, kg: 25 },
+	{ color: 'blue', lbs: 35, kg: 20 },
+	{ color: 'yellow', lbs: 25, kg: 15 },
+	{ color: 'green', lbs: 10, kg: 10 },
+	{ color: 'purple', lbs: 5, kg: 5 },
+	{ color: 'gray', lbs: 2.5, kg: 2.5 },
 ];
 
 interface Props {
@@ -32,13 +25,6 @@ const Plates: React.FC<Props> = ({
 	reset,
 	addPlates,
 }: Props) => {
-	let plates;
-	if (unit === 'lbs') {
-		plates = platesLbs;
-	} else {
-		plates = platesKg;
-	}
-
 	return (
 		<Flex direction='column' alignItems='center' justifyContent='center'>
 			<Stack direction={{ base: 'column', md: 'row' }} mt={12} spacing='8'>
@@ -47,9 +33,13 @@ const Plates: React.FC<Props> = ({
 					<Text fontSize='sm'>One selection = adding a plate on each side</Text>
 				</VStack>
 
-				{plates.map(({ color, plate }, i) => (
-					<Button colorScheme={color} onClick={() => addPlates(plate)} key={i}>
-						{plate}
+				{plates.map(({ color, lbs, kg }, i) => (
+					<Button
+						colorScheme={color}
+						onClick={() => addPlates(unit === 'lbs' ? lbs : kg)}
+						key={i}
+					>
+						{unit === 'lbs' ? lbs : kg}
 					</Button>
 				))}
 			</Stack>
