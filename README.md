@@ -4,6 +4,9 @@
 A web app dedicated to save the avid weight lifter's life easier by making quick
 weight calculations for barbells. Spend less time calculating and more time lifting! 💪
 
+## Tests
+[Tests](https://github.com/pswk1/barbell_calculator/tree/master/src/__tests__)
+
 ## Demo
 <img src='/demo/Barbell Weight Calculator.gif' alt='react pokedex project demo gif'>
 
@@ -21,6 +24,7 @@ weight calculations for barbells. Spend less time calculating and more time lift
 - HTML/CSS
 - React
 - React Hooks
+- Jest & React Testing Library
 
 ## Installation and Usage
 - Clone this repository into your machine.
