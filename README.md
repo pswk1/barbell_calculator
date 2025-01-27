@@ -4,14 +4,10 @@
 A web app dedicated to save the avid weight lifter's life easier by making quick
 weight calculations for barbells. Spend less time calculating and more time lifting! 💪
 
-## Tests
-[Tests](https://github.com/pswk1/barbell_calculator/tree/master/src/__tests__)
+Try it out [here](https://pk-barbell-calculator.netlify.app/)!
 
 ## Demo
 <img src='/demo/Barbell Weight Calculator.gif' alt='react pokedex project demo gif'>
-
-## Deploy
-[Deploy](https://pk-barbell-calculator.netlify.app/)
 
 ## Features
 - Users can quickly calculate barbell weights with plates
@@ -31,5 +27,3 @@ weight calculations for barbells. Spend less time calculating and more time lift
 - Navigate to the root directory of the repo.
 - Run ```npm install``` to install dependencies.
 - Run ```npm start``` to start the application.
-
-### In progress
